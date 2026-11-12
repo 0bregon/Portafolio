@@ -31,5 +31,6 @@ use the editor.
 
 ## Portfolio architecture
 - Keep the portfolio on the index route with in-page anchors because the requested experience is one continuous page.
-- Keep project facts in a browser-safe data module and project presentation in a reusable component so future case-study routes can reuse them.
+- Keep project data in a browser-safe module; leave the projects section unpopulated until actual projects are supplied.
 - Define visual roles and responsive styles in the global design system, with shared Button variants for portfolio actions, to keep presentation consistent.
+- Keep all interface translations in a typed centralized dictionary and language state in a shell-level context so anchors and shared error views use the same selection without duplicated pages.

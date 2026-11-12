@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Portfolio architecture
+- Keep the portfolio on the index route with in-page anchors because the requested experience is one continuous page.
+- Keep project facts in a browser-safe data module and project presentation in a reusable component so future case-study routes can reuse them.
+- Define visual roles and responsive styles in the global design system, with shared Button variants for portfolio actions, to keep presentation consistent.

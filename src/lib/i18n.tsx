@@ -48,7 +48,7 @@ const es: Messages = {
 
 export const translations: Record<Language, Messages> = { es, en };
 export type TranslationKey = keyof Messages;
-const LanguageContext = createContext({ language: defaultLanguage, setLanguage: (_language: Language) => {}, t: translations[defaultLanguage] });
+const LanguageContext = createContext<{ language: Language; setLanguage: (language: Language) => void; t: Messages }>({ language: defaultLanguage, setLanguage: (_language: Language) => {}, t: translations[defaultLanguage] });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(defaultLanguage);
@@ -56,11 +56,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = language;
     document.title = t.pageTitle;
-    for (const [selector, content] of [
+    const metadata: [string, string][] = [
       ['meta[name="description"]', t.description],
       ['meta[property="og:title"]', t.pageTitle],
       ['meta[property="og:description"]', t.socialDescription],
-    ]) document.querySelector(selector)?.setAttribute("content", content);
+    ];
+    for (const [selector, content] of metadata) document.querySelector(selector)?.setAttribute("content", content);
   }, [language, t]);
   return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>;
 }

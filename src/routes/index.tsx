@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowDown, ArrowUp, ArrowUpRight, Braces, CodeXml, Database, Github, GraduationCap, Linkedin, MapPin, Menu, Terminal, X } from "lucide-react";
+import { ArrowDown, ArrowUp, ArrowUpRight, Braces, CloudUpload, CodeXml, Database, FileDown, Github, GraduationCap, Linkedin, MapPin, Menu, Terminal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { translations, useLanguage } from "@/lib/i18n";
-import { events, socialLinks } from "@/lib/portfolio";
+import { educationPeriod, events, projects, resumeUrl, skillGroups, socialLinks, spokenLanguages } from "@/lib/portfolio";
+import { ProjectCard } from "@/components/project-card";
 
 // The home route ships no og:image, so serve-time hosting can inject the
 // project's social preview (explicit og:image or latest screenshot).
@@ -27,6 +28,7 @@ function Index() {
   const { t } = useLanguage();
   const interests = [t.software, t.ai, t.cybersecurity, t.edtech];
   const navigation = [[t.navAbout, "about"], [t.navProjects, "projects"], [t.navSkills, "skills"], [t.navEducation, "education"], [t.navExperience, "experience"], [t.navContact, "contact"]];
+  const skillPresentation = { web: { title: t.web, icon: CodeXml }, programming: { title: t.programming, icon: Braces }, databases: { title: t.databases, icon: Database }, tools: { title: t.tools, icon: Terminal }, deployment: { title: t.deployment, icon: CloudUpload } };
   return (
     <div id="top">
       <header className="site-header">
@@ -57,24 +59,23 @@ function Index() {
         </section>
         <section className="section" id="projects" aria-label={t.projectsLabel}>
           <div className="portfolio-container">
-            <div className="project-grid" />
+            <div className="section-top"><div><p className="eyebrow">{t.projectsEyebrow}</p><h2 className="section-heading">{t.projectsTitle}<em>{t.projectsEmphasis}</em></h2></div><p className="section-copy">{t.projectsIntro}</p></div>
+            <div className="project-grid">{projects.map(project => <ProjectCard key={project.id} project={project} />)}</div>
           </div>
         </section>
         <section className="section paper-section" id="skills"><div className="portfolio-container">
           <p className="eyebrow">{t.skillsEyebrow}</p><h2 className="section-heading">{t.skillsPrefix}<em>{t.skillsEmphasis}</em></h2><p className="section-copy">{t.skillsIntro}</p>
-          <div className="skills-grid">{[{ title: t.programming, icon: Braces }, { title: t.web, icon: CodeXml }, { title: t.databases, icon: Database }, { title: t.tools, icon: Terminal }].map(({ title, icon: Icon }) => <div className="skill-item" key={title}><Icon className="skill-icon" /><h3>{title}</h3><p className="placeholder">{t.skillsPending}</p></div>)}</div>
-          <div className="interest-row"><div><h3 className="text-xs font-medium">{t.interestsTitle}</h3><p className="placeholder mt-1">{t.interestsNote}</p></div><div className="interest-list">{[...interests, t.dataScience].map(interest => <span className="interest-tag" key={interest}>{interest}</span>)}</div></div>
+          <div className="skills-grid">{skillGroups.map(group => { const { title, icon: Icon } = skillPresentation[group.id]; return <div className="skill-item" key={group.id}><Icon className="skill-icon" /><h3>{title}</h3><ul className="skill-technologies">{group.technologies.map(tech => <li key={tech}>{tech}</li>)}</ul></div>; })}</div>
         </div></section>
         <section className="section" id="education"><div className="portfolio-container education-layout">
           <div><p className="eyebrow">{t.educationEyebrow}</p><h2 className="section-heading">{t.educationTitle}<br />{t.educationPrefix}<em>{t.educationEmphasis}</em></h2></div>
-          <div><div className="degree"><span className="degree-status"><GraduationCap size={14} /> {t.degreeStatus}</span><h3>{t.degree}</h3><p>{t.university}</p></div><div className="education-pending"><h4 className="text-xs font-medium">{t.trainingTitle}</h4><p className="placeholder mt-2">{t.trainingPending}</p></div></div>
+          <div><div className="degree"><span className="degree-status"><GraduationCap size={14} /> {t.degreeStatus} · {educationPeriod.start} – {t.present}</span><h3>{t.degree}</h3><p>{t.university}<br />{t.regionalCenter}</p></div><div className="education-pending"><h3 className="text-xs font-medium">{t.trainingTitle}</h3><p className="training-name">Samsung Innovation Campus</p><p className="placeholder">{t.trainingPending}</p></div><div className="spoken-languages"><h3 className="text-xs font-medium">{t.languagesTitle}</h3><dl>{spokenLanguages.map(item => <div key={item.id}><dt>{item.id === "es" ? t.spanish : t.english}</dt><dd>{item.level === "native" ? t.native : t.upperIntermediate}</dd></div>)}</dl></div></div>
         </div></section>
         <section className="section paper-section" id="experience"><div className="portfolio-container">
           <div className="section-top"><div><p className="eyebrow">{t.experienceEyebrow}</p><h2 className="section-heading">{t.experienceTitle}<br />{t.experiencePrefix}<em>{t.experienceEmphasis}</em></h2></div><p className="section-copy">{t.experienceIntro}</p></div>
-          <p className="placeholder">{t.eventsPending}</p>
-          <div className="events-grid">{events.map((event, index) => <article className="event-item" key={event}><span className="event-number">0{index + 1}</span><h3>{event}</h3><p className="placeholder">{t.participationPending}</p></article>)}</div>
+          <div className="events-grid">{events.map((event, index) => <article className="event-item" key={event}><span className="event-number">0{index + 1}</span><h3>{event}</h3><p className="event-role">{index === 0 ? t.copaRole : t.hackrocksRole}</p><p className="section-copy">{index === 0 ? t.copaDescription : t.hackrocksDescription}</p></article>)}</div>
         </div></section>
-        <section className="section contact-section" id="contact"><div className="portfolio-container"><p className="eyebrow">{t.contactEyebrow}</p><h2 className="section-heading">{t.contactTitle}<br />{t.contactPrefix}<em>{t.contactEmphasis}</em></h2><p className="section-copy">{t.contactIntro}</p><div className="social-links"><Button asChild variant="portfolio" className="h-11 px-5 text-xs"><a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin /> {t.linkedin} <ArrowUpRight /></a></Button><Button asChild variant="portfolioOutline" className="h-11 px-5 text-xs"><a href={socialLinks.github} target="_blank" rel="noopener noreferrer"><Github /> {t.github} <ArrowUpRight /></a></Button></div><p className="placeholder mt-6 flex justify-center items-center gap-2"><MapPin size={12} /> {t.location}</p></div></section>
+        <section className="section contact-section" id="contact"><div className="portfolio-container"><p className="eyebrow">{t.contactEyebrow}</p><h2 className="section-heading">{t.contactTitle}<br />{t.contactPrefix}<em>{t.contactEmphasis}</em></h2><p className="section-copy">{t.contactIntro}</p><ul className="opportunity-list" aria-label={t.availability}>{[t.internship, t.junior, t.collaboration].map(item => <li key={item}>{item}</li>)}</ul><div className="social-links"><Button asChild variant="portfolio" className="h-11 px-5 text-xs"><a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer"><Linkedin /> {t.linkedin} <ArrowUpRight /></a></Button><Button asChild variant="portfolioOutline" className="h-11 px-5 text-xs"><a href={socialLinks.github} target="_blank" rel="noopener noreferrer"><Github /> {t.github} <ArrowUpRight /></a></Button></div><div className="resume-space">{resumeUrl ? <Button asChild variant="portfolioOutline"><a href={resumeUrl} download><FileDown />{t.resumeTitle}</a></Button> : <p className="placeholder"><span>{t.resumeTitle}</span> · {t.resumePending}</p>}</div><p className="placeholder mt-6 flex justify-center items-center gap-2"><MapPin size={12} /> {t.location}</p></div></section>
       </main>
       <footer className="site-footer"><div className="portfolio-container footer-inner"><span>© 2026 Mariel Obregón</span><span>{t.footerNote}</span><a href="#top">{t.backTop} <ArrowUp size={13} /></a></div></footer>
     </div>

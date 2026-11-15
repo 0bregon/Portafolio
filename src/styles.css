@@ -229,6 +229,9 @@ a:focus-visible { outline: 2px solid var(--ring); outline-offset: 5px; }
 .skill-item { border-top: 1px solid var(--border); padding-top: 23px; }
 .skill-icon { color: var(--primary); margin-bottom: 18px; width: 21px; height: 21px; stroke-width: 1.4; }
 .skill-item h3 { font-size: 13px; font-weight: 500; margin-bottom: 10px; }
+.skill-item-web { border-top-color: var(--primary); }
+.skill-item-web h3 { color: var(--primary); font-weight: 600; }
+.skill-item-web .skill-technologies { color: var(--foreground); font-size: 14px; font-weight: 500; }
 .placeholder { font-size: 11px; color: var(--muted-foreground); line-height: 1.8; }
 .interest-row { margin-top: 34px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; gap: 40px; align-items: center; }
 .interest-row .interest-list { margin-top: 0; }

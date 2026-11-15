@@ -9,6 +9,10 @@ describe("Confirmed portfolio facts", () => {
     expect(confirmedSkills).toEqual(["HTML", "CSS", "JavaScript", "Python", "Java", "C++", "SQL", "Supabase", "Visual Studio Code", "Git", "GitHub", "GitHub Pages", "Netlify", "Cloudflare"]);
     expect(skillGroups).toHaveLength(5);
   });
+  it("prioritizes web development while preserving the requested category order", () => {
+    expect(skillGroups.map(group => group.id)).toEqual(["web", "programming", "databases", "tools", "deployment"]);
+    expect(skillGroups[0].technologies).toEqual(["HTML", "CSS", "JavaScript"]);
+  });
   it("keeps Robo-B in development with no fabricated public demo", () => {
     expect(projects[0].status).toBe("development");
     expect(projects[0].demo).toBeNull();

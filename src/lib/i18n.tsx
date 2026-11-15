@@ -37,7 +37,7 @@ const es: Messages = {
   navAbout: "Sobre mí", navProjects: "Proyectos", navSkills: "Habilidades", navEducation: "Educación", navExperience: "Experiencia", navContact: "Contacto",
   mainNavigation: "Navegación principal", mobileNavigation: "Navegación móvil", openNavigation: "Abrir navegación", closeNavigation: "Cerrar navegación", languageSelector: "Selector de idioma", backLabel: "Mariel Obregón, volver al inicio",
   heroEyebrow: "Desarrollo web y de software", role: "Estudiante de Informática", futureRole: "Desarrolladora web y de software en formación",
-  intro: "Desarrollo proyectos web con HTML, CSS y JavaScript, desde interfaces interactivas hasta aplicaciones con integración de bases de datos. Busco prácticas oportunidades para crecer como desarrolladora.",
+  intro: "Desarrollo proyectos web con HTML, CSS y JavaScript, desde interfaces interactivas hasta aplicaciones con integración de bases de datos. Busco oportunidades para crecer como desarrolladora.",
   explore: "Explorar mis proyectos", connect: "Conectemos", location: "La Chorrera, Panamá", moreAbout: "Un poco más sobre mí",
   aboutEyebrow: "01 / Sobre mí", aboutTitle: "De una idea", aboutPrefix: "a una ", aboutEmphasis: "aplicación", aboutSuffix: ".", aboutNote: "Universidad de Panamá · Centro Regional de Panamá Oeste",
   aboutFirst: "Soy estudiante de la Licenciatura en Informática para la Gestión Educativa y Empresarial en la Universidad de Panamá, Centro Regional de Panamá Oeste.",

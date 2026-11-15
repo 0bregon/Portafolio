@@ -77,7 +77,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       ['meta[property="og:title"]', t.pageTitle],
       ['meta[property="og:description"]', t.socialDescription],
     ];
-    for (const [selector, content] of metadata) document.querySelector(selector)?.setAttribute("content", content);
+    for (const [selector, content] of metadata) {
+      document.querySelectorAll(selector).forEach(element => element.setAttribute("content", content));
+    }
   }, [language, t]);
   return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>;
 }

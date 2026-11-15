@@ -3,7 +3,7 @@ import { confirmedSkills, educationPeriod, projects, resumeUrl, skillGroups, soc
 
 describe("Confirmed portfolio facts", () => {
   it("only publishes the three supplied projects, not Exploradores Digitales", () => {
-    expect(projects.map(project => project.name)).toEqual(["Academia Robo-B", "Festín", "CONAC"]);
+    expect(projects.map(project => project.name)).toEqual(["Academia Robo-B", "Festín", "CONAC - Proyecto Colaborativo"]);
   });
   it("includes exactly the confirmed technical skills", () => {
     expect(confirmedSkills).toEqual(["HTML", "CSS", "JavaScript", "Python", "Java", "C++", "SQL", "Supabase", "Visual Studio Code", "Git", "GitHub", "GitHub Pages", "Netlify", "Cloudflare"]);

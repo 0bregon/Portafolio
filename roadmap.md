@@ -8,5 +8,5 @@
 - [x] Verify Academia Robo-B, Festín and CONAC sources and capture authentic images.
 - [x] Update professional focus, projects, skills, participation, education, languages and contact in ES/EN.
 - [x] Verify factual rules, links, keyboard access and mobile/desktop presentation.
-- [ ] Polish contact, web-skill emphasis and training/participation descriptions without changing the overall design.
-- [ ] Verify links, ES/EN and mobile presentation after the final adjustments.
+- [x] Polish contact, web-skill emphasis and training/participation descriptions without changing the overall design.
+- [x] Verify links, ES/EN and mobile presentation after the final adjustments; LinkedIn opens in a new tab but blocks automated profile retrieval.

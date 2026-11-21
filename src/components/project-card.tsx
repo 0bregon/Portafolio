@@ -2,17 +2,15 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/lib/i18n";
 import { projects } from "@/lib/portfolio";
-import roboAsset from "@/assets/robo.webp.asset.json";
-import festinAsset from "@/assets/festin.webp.asset.json";
-import conacAsset from "@/assets/conac.webp.asset.json";
+import { projectImage } from "@/lib/project-media";
 
 export function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   const { t } = useLanguage();
   const title = project.id === "conac" ? t.conacTitle : project.name;
   const content = {
-    robo: { image: roboAsset.url, alt: t.roboAlt, description: t.roboDescription, objective: t.roboObjective, features: t.roboFeatures, pending: t.roboPending },
-    festin: { image: festinAsset.url, alt: t.festinAlt, description: t.festinDescription, objective: t.festinObjective, features: t.festinFeatures, pending: t.festinPending },
-    conac: { image: conacAsset.url, alt: t.conacAlt, description: t.conacDescription, objective: t.conacObjective, features: t.conacFeatures, pending: t.conacPending },
+    robo: { image: projectImage("robo"), alt: t.roboAlt, description: t.roboDescription, objective: t.roboObjective, features: t.roboFeatures, pending: t.roboPending },
+    festin: { image: projectImage("festin"), alt: t.festinAlt, description: t.festinDescription, objective: t.festinObjective, features: t.festinFeatures, pending: t.festinPending },
+    conac: { image: projectImage("conac"), alt: t.conacAlt, description: t.conacDescription, objective: t.conacObjective, features: t.conacFeatures, pending: t.conacPending },
   }[project.id];
   return <article className={`project-card project-${project.id}`} aria-labelledby={`project-${project.id}`}>
     <figure className="project-image"><img src={content.image} alt={content.alt} width={project.id === "robo" ? 800 : 1280} height={800} loading="lazy" decoding="async" /><figcaption className="image-caption">{project.id === "robo" ? t.sourceCapture : t.screenshot}</figcaption></figure>

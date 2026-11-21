@@ -1,5 +1,5 @@
 import { QueryClient } from "@tanstack/react-query";
-import { createRouter, rootRouteId } from "@tanstack/react-router";
+import { createMemoryHistory, createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 
 import { routeTree } from "@/routeTree.gen";
@@ -13,5 +13,12 @@ describe("App routing", () => {
     const matches = router.matchRoutes("/");
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
+  });
+  it("matches the same index route under /Portafolio/ on GitHub Pages", () => {
+    const router = createRouter({ routeTree, basepath: "/Portafolio/", history: createMemoryHistory({ initialEntries: ["/Portafolio/"] }), context: { queryClient: new QueryClient() } });
+    // Current TanStack separates the internal pathname from the public URL.
+    expect(router.latestLocation.pathname).toBe("/");
+    expect(router.matchRoutes(router.latestLocation.pathname).at(-1)?.routeId).toBe("/");
+    expect(router.buildLocation({ to: "/" }).publicHref).toBe("/Portafolio/");
   });
 });

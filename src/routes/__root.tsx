@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider, translations, useLanguage } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
+import { appBase, assetPath } from "@/lib/deployment";
 
 function NotFoundComponent() {
   const { t } = useLanguage();
@@ -66,7 +67,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             {t.tryAgain}
           </Button>
           <a
-            href="/"
+            href={appBase}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             {t.goHome}
@@ -101,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: assetPath("favicon.ico", appBase), type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,

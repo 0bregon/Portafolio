@@ -100,8 +100,3 @@ No puedo confirmar desde el código que el repositorio actualmente sincronizado 
 Se conservarán el contenido, las siete secciones, diseño, estilos, animaciones, componentes, español inicial, cambio ES/EN, títulos y descripciones traducidos, menú móvil, anclas, imágenes auténticas, tecnologías, enlaces externos y ausencia de un currículum inventado. La conservación se verificará, no se dará por garantizada antes de generar y probar el artefacto.
 
 La única diferencia prevista es la plataforma que atiende errores de direcciones y servidor, explicada arriba. No hay actualmente una funcionalidad de negocio dependiente del servidor que sea necesario eliminar. Si aparece un obstáculo no previsto, se detendrá esa modificación y se explicará antes de sustituir funcionalidades.
-
-## Referencias
-
-- [Nitro: preset y publicación en GitHub Pages](https://nitro.build/deploy/providers/github-pages)
-- [Lovable: self-hosting](https://docs.lovable.dev/tips-tricks/self-hosting)

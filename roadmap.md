@@ -10,3 +10,5 @@
 - [x] Verify factual rules, links, keyboard access and mobile/desktop presentation.
 - [x] Polish contact, web-skill emphasis and training/participation descriptions without changing the overall design.
 - [x] Verify links, ES/EN and mobile presentation after the final adjustments; LinkedIn opens in a new tab but blocks automated profile retrieval.
+- [ ] Prepare a separate GitHub Pages static build for 0bregon/Portafolio after approval of the architecture review.
+- [ ] Verify generated static files, /Portafolio/ navigation and the Pages deployment workflow.

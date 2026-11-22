@@ -13,7 +13,7 @@ const githubPages = process.env["BUILD_TARGET"] === "github-pages";
 
 export default defineConfig({
   ...(githubPages ? {
-    nitro: { preset: "github_pages" },
+    nitro: { preset: "node-server" }, // snapshotted to static HTML by scripts/build-pages.ts
     vite: { base: "/Portafolio/" },
   } : {}),
   tanstackStart: {
@@ -22,14 +22,6 @@ export default defineConfig({
     server: { entry: "server" },
     ...(githubPages ? {
       router: { basepath: "/Portafolio" },
-      pages: [{ path: "/Portafolio/" }],
-      prerender: {
-        enabled: true,
-        autoStaticPathsDiscovery: false,
-        crawlLinks: false,
-        failOnError: true,
-        concurrency: 1,
-      },
     } : {}),
   },
 });

@@ -36,6 +36,6 @@ use the editor.
 - Keep all interface translations in a typed centralized dictionary and language state in a shell-level context; standalone emergency HTML also uses that dictionary and offers ES/EN selection because it renders without the React shell.
 - Render project presentation through a shared project component, and omit absent demo or résumé actions so no control points to fabricated material.
 - Keep GitHub Pages as an explicit build target with coordinated Vite/Start/Router bases; normal builds retain Lovable hosting so Git sync and preview remain independent.
-- Let TanStack prerender the index while Nitro's Pages crawler is disabled; validate the public artifact and file-server browser flow before Actions deploys it, to prevent server-dependent output.
+- Pages builds a Node server once and scripts/build-pages.ts snapshots /Portafolio/ to static HTML, because Nitro static presets cannot build the TanStack SSR entry and TanStack prerender cannot load Nitro output; validate the artifact and file-server browser flow before Actions deploys it.
 - Preserve Lovable asset pointers and use exported original captures from public/pages-media only for Pages, because the Lovable asset gateway is unavailable on GitHub hosting.
 - Keep filesystem, subprocess and browser validation code in scripts, never in the app's Worker graph, because they are CI-only tooling.

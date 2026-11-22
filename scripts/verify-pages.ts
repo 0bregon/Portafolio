@@ -26,7 +26,7 @@ export function verifyPages(directory = ".output/public"): void {
       ? [...text.matchAll(/(?:src|href)=["']([^"']+)["']/g)].map(match => match[1])
       : file.endsWith(".css")
         ? [...text.matchAll(/url\(\s*["']?([^"')\s]+)["']?\s*\)/g)].map(match => match[1])
-        : [...text.matchAll(/(?:from\s*|import\s*\(|import\s*)["']([^"']+)["']/g)].map(match => match[1]);
+        : [...text.matchAll(/(?:from\s*|import\s*\(\s*|import\s*)["'](\.{0,2}\/[^"']+)["']/g)].map(match => match[1]);
     for (const reference of references) {
       if (!reference || /^(?:https?:|data:|blob:|mailto:|tel:|#)/.test(reference)) continue;
       const path = decodeURIComponent(reference.split(/[?#]/)[0] || "");

@@ -12,7 +12,7 @@ function allFiles(directory: string): string[] {
 
 export function verifyPages(directory = ".output/public"): void {
   const root = resolve(directory);
-  const required = ["index.html", "404.html", ".nojekyll", "favicon.ico", "robots.txt", ...["robo", "festin", "conac"].map(id => `pages-media/${id}.webp`)];
+  const required = ["index.html", "404.html", ".nojekyll", "favicon.ico", "robots.txt", ...["piensa", "festin", "conac"].map(id => `pages-media/${id}.webp`)];
   for (const file of required) {
     if (!existsSync(resolve(root, file))) throw new Error(`Missing Pages file: ${file}`);
   }
@@ -39,7 +39,7 @@ export function verifyPages(directory = ".output/public"): void {
   }
   const index = readFileSync(resolve(root, "index.html"), "utf8");
   if (!index.includes("Mariel") || !index.includes('id="projects"')) throw new Error("index.html is not the prerendered portfolio.");
-  for (const id of ["robo", "festin", "conac"]) {
+  for (const id of ["piensa", "festin", "conac"]) {
     if (!index.includes(`${pagesBase}pages-media/${id}.webp`)) throw new Error(`Missing prerendered project image: ${id}`);
   }
   console.log(`Verified ${files.length} static files in ${directory}.`);

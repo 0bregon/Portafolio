@@ -202,9 +202,9 @@ body { margin: 0; }
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
 .project-image { aspect-ratio: 8 / 5; overflow: hidden; position: relative; background: var(--secondary); border-radius: 3px; }
 .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 300ms ease; }
-.project-robo { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
-.project-robo .project-image { aspect-ratio: 1; }
-.project-robo .project-category { margin-top: 0; }
+.project-piensa { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.project-piensa .project-image { aspect-ratio: 1; }
+.project-piensa .project-category { margin-top: 0; }
 .project-facts { margin-top: 18px; font-size: 12px; line-height: 1.8; color: var(--muted-foreground); }
 .project-facts div + div { margin-top: 12px; }
 .project-facts dt { color: var(--foreground); font-weight: 500; }
@@ -282,8 +282,8 @@ a:focus-visible { outline: 2px solid var(--ring); outline-offset: 5px; }
   .section-top { display: block; margin-bottom: 27px; }
   .section-top > p { margin-top: 18px; }
   .project-grid { grid-template-columns: 1fr; gap: 40px; }
-  .project-robo { display: block; }
-  .project-robo .project-category { margin-top: 23px; }
+  .project-piensa { display: block; }
+  .project-piensa .project-category { margin-top: 23px; }
   .image-caption { font-size: 9px; max-width: calc(100% - 28px); }
   .project-meta { flex-wrap: wrap; }
   .skills-grid { gap: 24px; }

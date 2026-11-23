@@ -39,3 +39,5 @@ use the editor.
 - Pages builds a Node server once and scripts/build-pages.ts snapshots /Portafolio/ to static HTML, because Nitro static presets cannot build the TanStack SSR entry and TanStack prerender cannot load Nitro output; validate the artifact and file-server browser flow before Actions deploys it.
 - Preserve Lovable asset pointers and use exported original captures from public/pages-media only for Pages, because the Lovable asset gateway is unavailable on GitHub hosting.
 - Keep filesystem, subprocess and browser validation code in scripts, never in the app's Worker graph, because they are CI-only tooling.
+
+- Keep educational methodology in a separate project fact from implementation, and distinguish documented plans from verified published activities to avoid presenting planned games as complete.

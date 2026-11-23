@@ -59,7 +59,7 @@ async def main():
             assert await page.locator("html").get_attribute("lang") == "en"
             assert await page.locator("#project-conac").inner_text() == "CONAC - Collaborative Project"
             assert "looking for opportunities" in await page.locator(".hero-intro").inner_text()
-            assert "only a web prototype" in await page.locator(".project-robo .project-description").inner_text()
+            assert "educational web prototype" in await page.locator(".project-piensa .project-description").inner_text()
             assert await page.title() == "Mariel Obregón — Web & Software Development"
             for section in ["about", "projects", "skills", "education", "experience", "contact"]:
                 await page.get_by_role("navigation", name="Main navigation").locator(f'a[href="#{section}"]').click()

@@ -12,4 +12,5 @@
 - [x] Verify links, ES/EN and mobile presentation after the final adjustments; LinkedIn opens in a new tab but blocks automated profile retrieval.
 - [x] Prepare a separate GitHub Pages static build for 0bregon/Portafolio after approval of the architecture review.
 - [x] Verify destination rules, original media exports, routing and the unchanged Lovable preview; include artifact and static-browser validation in CI.
-- [ ] Verify generated static files and a real Pages deployment — blocked until GitHub Actions runs outside Lovable with Pages enabled in 0bregon/Portafolio.
+- [ ] Verify a real Pages deployment — blocked by the GitHub Actions browser-install failure; its detailed log is not accessible without the user sharing it.
+- [x] Replace only Academia Robo-B with verified Piensa y Ordena content, ES/EN, authentic capture and supplied links; verify unchanged surrounding sections.

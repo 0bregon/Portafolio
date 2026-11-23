@@ -4,7 +4,7 @@ export const socialLinks = {
 };
 
 export const projects = [
-  { id: "robo", name: "Academia Robo-B", technologies: ["HTML", "CSS", "JavaScript"], repository: "https://github.com/0bregon/Academia_Robo-B", demo: null, status: "development" },
+  { id: "piensa", name: "Piensa y Ordena", technologies: ["HTML5", "CSS3", "JavaScript"], repository: "https://github.com/0bregon/Piensa-y-Ordena", demo: "https://0bregon.github.io/Piensa-y-Ordena/", status: "prototype" },
   { id: "festin", name: "Festín", technologies: ["HTML", "CSS", "JavaScript", "Supabase", "GitHub Pages"], repository: "https://github.com/0bregon/Festin", demo: "https://0bregon.github.io/Festin/", status: "public" },
   { id: "conac", name: "CONAC - Proyecto Colaborativo", technologies: ["HTML", "CSS", "JavaScript", "GitHub Pages"], repository: "https://github.com/0bregon/CONAC", demo: "https://0bregon.github.io/CONAC/", status: "public" },
 ] as const;

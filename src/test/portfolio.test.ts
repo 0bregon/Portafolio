@@ -3,7 +3,7 @@ import { confirmedSkills, educationPeriod, projects, resumeUrl, skillGroups, soc
 
 describe("Confirmed portfolio facts", () => {
   it("only publishes the three supplied projects, not Exploradores Digitales", () => {
-    expect(projects.map(project => project.name)).toEqual(["Academia Robo-B", "Festín", "CONAC - Proyecto Colaborativo"]);
+    expect(projects.map(project => project.name)).toEqual(["Piensa y Ordena", "Festín", "CONAC - Proyecto Colaborativo"]);
   });
   it("includes exactly the confirmed technical skills", () => {
     expect(confirmedSkills).toEqual(["HTML", "CSS", "JavaScript", "Python", "Java", "C++", "SQL", "Supabase", "Visual Studio Code", "Git", "GitHub", "GitHub Pages", "Netlify", "Cloudflare"]);
@@ -13,10 +13,18 @@ describe("Confirmed portfolio facts", () => {
     expect(skillGroups.map(group => group.id)).toEqual(["web", "programming", "databases", "tools", "deployment"]);
     expect(skillGroups[0].technologies).toEqual(["HTML", "CSS", "JavaScript"]);
   });
-  it("keeps Robo-B in development with no fabricated public demo", () => {
-    expect(projects[0].status).toBe("development");
-    expect(projects[0].demo).toBeNull();
-    expect(projects[0].repository).toBe("https://github.com/0bregon/Academia_Robo-B");
+  it("presents Piensa y Ordena as a web prototype", () => {
+    expect(projects[0].id).toBe("piensa");
+    expect(projects[0].status).toBe("prototype");
+  });
+  it("links to the supplied Piensa y Ordena demonstration", () => {
+    expect(projects[0].demo).toBe("https://0bregon.github.io/Piensa-y-Ordena/");
+  });
+  it("links to the supplied Piensa y Ordena source", () => {
+    expect(projects[0].repository).toBe("https://github.com/0bregon/Piensa-y-Ordena");
+  });
+  it("records only HTML5, CSS3 and JavaScript for Piensa y Ordena", () => {
+    expect(projects[0].technologies).toEqual(["HTML5", "CSS3", "JavaScript"]);
   });
   it("uses the supplied public demonstrations", () => {
     expect(projects[1].demo).toBe("https://0bregon.github.io/Festin/");
